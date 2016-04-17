@@ -102,4 +102,7 @@ public abstract class Shape
        
        return answer;
    }
+   public abstract void rotate();
+	   protected int rotation = 0;
+	   
 }

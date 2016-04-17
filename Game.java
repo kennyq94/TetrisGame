@@ -18,6 +18,7 @@ public class Game {
 	public static final int LEFT = 0;
 	public static final int RIGHT = 1;
 	public static final int DOWN = 2;
+	public static final int UP = 3;
 
 	/**
 	 * Create a Tetris game
@@ -28,7 +29,7 @@ public class Game {
 	public Game(Tetris display) {
 		theGrid = new Grid();
 		theDisplay = display;
-		//piece = new ZShape(1, Grid.WIDTH / 2 - 1, theGrid);
+		// piece = new ZShape(1, Grid.WIDTH / 2 - 1, theGrid);
 		piece = randomPiece(); // calls randomPiece method instead of LShape
 		isOver = false;
 	}
@@ -62,6 +63,14 @@ public class Game {
 		theGrid.checkRows();
 	}
 
+	public void rotatePiece() {
+		if (piece != null)
+			piece.rotate();
+		updatePiece();
+		theDisplay.update();
+		theGrid.checkRows();
+	}
+
 	/**
 	 * Returns true if the game is over
 	 */
@@ -90,8 +99,7 @@ public class Game {
 
 		if (piece == null) {
 
-			
-			piece = randomPiece();
+			piece = randomPiece(); 
 
 			// CREATED NEW randomPiece ONCE CURRENT PIECE REACHES BOTTOM
 			// AND BECOMES NULL
@@ -109,38 +117,40 @@ public class Game {
 		}
 
 	}
+
 	/*
-	 * method to generate random number
-	 * switch statement cases for each number for each shape
+	 * method to generate random number switch statement cases for each number
+	 * for each shape
 	 */
-public Shape randomPiece(){
-	Shape s;
-	int num = rand.nextInt(7);
-	
-	switch(num){
-	case 0: 
-		s = new LShape(1, Grid.WIDTH / 2 - 1, theGrid);
-		break;
-	case 1: 
-		s = new LeftLShape(1, Grid.WIDTH / 2 - 1, theGrid);
-		break;
-	case 2: 
-		s = new SquareShape(1, Grid.WIDTH / 2 - 1, theGrid);
-		break;
-	case 3: 
-		s = new SShape(1, Grid.WIDTH / 2 - 1, theGrid);
-		break;
-	case 4: 
-		s = new TShape(1, Grid.WIDTH / 2 - 1, theGrid);
-		break;
-	case 5: 
-		s = new ZShape(1, Grid.WIDTH / 2 - 1, theGrid);
-		break;
-	case 6: 
-		s = new BarShape(1, Grid.WIDTH / 2 - 1, theGrid);
-		break;
-	default: s = null;
+	public Shape randomPiece() {
+		Shape s;
+		int num = rand.nextInt(7);
+
+		switch (num) {
+		case 0:
+			s = new LShape(1, Grid.WIDTH / 2 - 1, theGrid);
+			break;
+		case 1:
+			s = new JShape(1, Grid.WIDTH / 2 - 1, theGrid);
+			break;
+		case 2:
+			s = new SquareShape(1, Grid.WIDTH / 2 - 1, theGrid);
+			break;
+		case 3:
+			s = new SShape(1, Grid.WIDTH / 2 - 1, theGrid);
+			break;
+		case 4:
+			s = new TShape(1, Grid.WIDTH / 2 - 1, theGrid);
+			break;
+		case 5:
+			s = new ZShape(1, Grid.WIDTH / 2 - 1, theGrid);
+			break;
+		case 6:
+			s = new BarShape(1, Grid.WIDTH / 2 - 1, theGrid);
+			break;
+		default:
+			s = null;
+		}
+		return s;
 	}
-	return s;
-}
 }

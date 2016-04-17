@@ -11,4 +11,10 @@ public class TShape extends Shape {
 	        square[2] = new Square(g, r, c-1, Color.YELLOW, true);
 	        square[3] = new Square(g, r+1,c, Color.YELLOW, true);
 	    }
+	
+
+		@Override
+		public void rotate() {
+
+		}
 }

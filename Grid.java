@@ -78,7 +78,7 @@ public class Grid {
 
 		}
 	}
-
+ 
 	/*
 	 * private class to clear the row if filled
 	 * 

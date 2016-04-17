@@ -96,9 +96,14 @@ public class Square {
 			if (col == (theGrid.WIDTH - 1) || theGrid.isSet(row, col))
 				move = false;
 			break;
+		case Game.UP:
+			if(row ==(0)||theGrid.isSet(row-1, col))
+				move = false;
+			break;
 		default:
 			throw new IllegalArgumentException("Bad direction to Square.canMove()");
 		}
+		
 		return move;
 	}
 
@@ -122,8 +127,10 @@ public class Square {
 			case Game.LEFT:
 				col = col - 1;
 				break;
-
-			// NOW SUPPORTS LEFT AND RIGHT MOVEMENT
+			case Game.UP:
+				row = row -1;
+				break;
+			// NOW SUPPORTS LEFT AND RIGHT MOVEMENT ALSO UP MOVEMENT
 			// LEFT WILL SUBTRACT 1 TO COLLUMN
 			// RIGHT WILL ADD 1 TO COLLUMN
 			}
