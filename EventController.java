@@ -1,9 +1,11 @@
 
+/*
 /**
  * Handles events for the Tetris Game.  User events (key strokes) as well as periodic timer
+
  * events.
  * 
- * @author CSC 143
+ *  @author CSC143 Khang Quach Tetris Final version 04/17/16
  */
 import java.awt.event.*;
 import javax.swing.*;
@@ -39,7 +41,7 @@ public class EventController extends KeyAdapter implements ActionListener {
 	public void keyPressed(KeyEvent e) {
 		if (!gameOver) {
 			switch (e.getKeyCode()) {
- 			case KeyEvent.VK_SPACE:
+			case KeyEvent.VK_SPACE:
 				handleMove(Game.DOWN);
 				break;
 			// NEW CASE WITH KEYPRESS DOWN TO MOVE PIECE DOWNWARD
@@ -54,11 +56,10 @@ public class EventController extends KeyAdapter implements ActionListener {
 			case KeyEvent.VK_LEFT:
 				handleMove(Game.LEFT);
 				break;
-			//HANDLES ROTATE KEYPRESS
+			// HANDLES ROTATE KEYPRESS
 			case KeyEvent.VK_R:
 				handleRotate();
 				break;
-			
 
 			}
 		}
@@ -79,6 +80,7 @@ public class EventController extends KeyAdapter implements ActionListener {
 		if (gameOver)
 			timer.stop();
 	}
+
 	private void handleRotate() {
 		theGame.rotatePiece();
 		gameOver = theGame.isGameOver();

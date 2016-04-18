@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * One Square on our Tetris Grid or one square in our Tetris game piece
  * 
- * @author khang Quach tetris implementations 04/11/2016
+ * @author CSC143 khang Quach tetris implementations 04/11/2016
  */
 public class Square {
 	private Grid theGrid; // the environment where this Square is
@@ -88,22 +88,22 @@ public class Square {
 		// NOW CHECKS RIGHT EDGE AND LEFT EDGE BASED ON COLLUMN LOCATION AND THE
 		// GRID BOOLEAN
 		case Game.LEFT:
-			if (col == (0) || theGrid.isSet(row, 0))
+			if (col == (0) || theGrid.isSet(row, col - 1))
 				move = false;
 			break;
 
 		case Game.RIGHT:
-			if (col == (theGrid.WIDTH - 1) || theGrid.isSet(row, col))
+			if (col == (theGrid.WIDTH - 1) || theGrid.isSet(row, col + 1))
 				move = false;
 			break;
 		case Game.UP:
-			if(row ==(0)||theGrid.isSet(row-1, col))
+			if (row == (0) || theGrid.isSet(row - 1, col) || theGrid.isSet(row, col) == true)
 				move = false;
 			break;
 		default:
 			throw new IllegalArgumentException("Bad direction to Square.canMove()");
 		}
-		
+
 		return move;
 	}
 
@@ -128,7 +128,7 @@ public class Square {
 				col = col - 1;
 				break;
 			case Game.UP:
-				row = row -1;
+				row = row - 1;
 				break;
 			// NOW SUPPORTS LEFT AND RIGHT MOVEMENT ALSO UP MOVEMENT
 			// LEFT WILL SUBTRACT 1 TO COLLUMN

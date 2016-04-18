@@ -13,6 +13,7 @@ public class SquareShape extends Shape {
 	 * @param g
 	 *            the grid for this game piece
 	 * 
+	 * @author CSC143 Khang Quach Tetris Final version 04/17/16
 	 */
 	public SquareShape(int r, int c, Grid g) {
 		super(r, c, g);
@@ -24,10 +25,28 @@ public class SquareShape extends Shape {
 		rotation = 0;
 	}
 
-
 	@Override
+	/*
+	 * @see Shape#rotate() override rotate method to support SquareShape
+	 * rotation
+	 */
 	public void rotate() {
+		/*
+		 * @param rotation will stay at zero because square doesn't need to
+		 * rotate
+		 */
 
-		
+		switch (rotation) {
+		case 0:
+			if (rotation == 0) {
+
+				square[0] = square[0];
+				square[1] = square[1];
+				square[2] = square[2];
+				square[3] = square[3];
+
+				rotation = 0;
+			}
 		}
 	}
+}

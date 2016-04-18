@@ -10,7 +10,7 @@ import java.awt.*;
  * spot is occupied (i.e. a piece cannot move over/to an occupied square). A
  * grid will also remove completely full rows.
  * 
- * * @author Khang Quach Tetris implementations 04/11/16
+ * * @author CSC143 Khang Quach Tetris Final version 04/17/16
  */
 public class Grid {
 	private Square[][] board;
@@ -78,7 +78,7 @@ public class Grid {
 
 		}
 	}
- 
+
 	/*
 	 * private class to clear the row if filled
 	 * 

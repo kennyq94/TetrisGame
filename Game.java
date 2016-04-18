@@ -5,7 +5,7 @@ import java.util.Random;
  * Manages the game Tetris. Keeps track of the current piece and the grid.
  * Updates the display whenever the state of the game has changed.
  * 
- * @author Khang Quach Tetris implementations 04/11/16
+ * @author CSC143 Khang Quach Tetris Final version 04/17/16
  */
 public class Game {
 
@@ -18,7 +18,7 @@ public class Game {
 	public static final int LEFT = 0;
 	public static final int RIGHT = 1;
 	public static final int DOWN = 2;
-	public static final int UP = 3;
+	public static final int UP = 3;// updated with possible up direction
 
 	/**
 	 * Create a Tetris game
@@ -63,6 +63,8 @@ public class Game {
 		theGrid.checkRows();
 	}
 
+	// new method to rotatePiece with rotate method
+
 	public void rotatePiece() {
 		if (piece != null)
 			piece.rotate();
@@ -99,7 +101,7 @@ public class Game {
 
 		if (piece == null) {
 
-			piece = randomPiece(); 
+			piece = randomPiece();
 
 			// CREATED NEW randomPiece ONCE CURRENT PIECE REACHES BOTTOM
 			// AND BECOMES NULL

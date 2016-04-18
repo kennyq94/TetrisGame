@@ -1,12 +1,12 @@
 
 /**
  * Create and control the game Tetris.  
+
  * 
  * NOTE: when putting a Tetris object in a top-level container, make sure the Tetris
  * object has the focus (use requestFocus())
  * 
- * @author CSC 143 Based on a C++ version written by the 
- * University of Washington CSE department
+ * @author CSC143 Khang Quach Tetris Final version 04/17/16
  */
 import javax.swing.*;
 import java.awt.*;
